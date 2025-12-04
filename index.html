@@ -1,0 +1,385 @@
+import React, { useState } from 'react';
+import { Mail, Phone, Linkedin, CheckCircle, Users, Target, TrendingUp, Send } from 'lucide-react';
+
+export default function TechRecruiterWebsite() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    role: '',
+    message: ''
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = () => {
+    if (formData.name && formData.email && formData.message) {
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 5000);
+      setFormData({ name: '', email: '', company: '', role: '', message: '' });
+    }
+  };
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+      {/* Header/Navigation */}
+      <nav className="bg-white shadow-sm sticky top-0 z-50">
+        <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+          <h1 className="text-2xl font-bold text-slate-800">Harshal Orawala</h1>
+          <div className="flex gap-6">
+            <a href="#about" className="text-slate-600 hover:text-blue-600 transition">About</a>
+            <a href="#services" className="text-slate-600 hover:text-blue-600 transition">Services</a>
+            <a href="#expertise" className="text-slate-600 hover:text-blue-600 transition">Expertise</a>
+            <a href="#contact" className="text-slate-600 hover:text-blue-600 transition">Contact</a>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="max-w-6xl mx-auto px-4 py-16">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <div className="inline-block bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              Technical Recruitment Specialist
+            </div>
+            <h2 className="text-5xl font-bold text-slate-800 mb-6">
+              Building Elite Tech Teams for Growing Companies
+            </h2>
+            <p className="text-xl text-slate-600 mb-8">
+              With 8+ years in software development and recruiting, I connect exceptional tech talent with innovative companies. Specialized in hard-to-fill roles and senior engineering positions.
+            </p>
+            <div className="flex gap-4 mb-8">
+              <a href="#contact" className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                Get Started
+              </a>
+              <a href="mailto:contact.SoftwareDeveloper7@gmail.com" className="border-2 border-slate-300 text-slate-700 px-8 py-3 rounded-lg font-semibold hover:border-blue-600 hover:text-blue-600 transition">
+                Contact Me
+              </a>
+            </div>
+            <div className="flex flex-col gap-3">
+              <a href="mailto:contact.SoftwareDeveloper7@gmail.com" className="flex items-center gap-2 text-slate-600 hover:text-blue-600 transition">
+                <Mail className="w-5 h-5" />
+                contact.SoftwareDeveloper7@gmail.com
+              </a>
+              <a href="tel:+916354825917" className="flex items-center gap-2 text-slate-600 hover:text-blue-600 transition">
+                <Phone className="w-5 h-5" />
+                +91 6354-825917
+              </a>
+            </div>
+          </div>
+          <div className="relative">
+            <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-8 text-white shadow-2xl">
+              <div className="bg-white/10 backdrop-blur rounded-xl p-6 mb-4">
+                <div className="w-32 h-32 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center text-6xl font-bold">
+                  HO
+                </div>
+                <p className="text-center text-sm opacity-90">Add your professional photo here</p>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-white/10 backdrop-blur rounded-lg p-4 text-center">
+                  <div className="text-3xl font-bold">47+</div>
+                  <div className="text-sm opacity-90">Placements</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur rounded-lg p-4 text-center">
+                  <div className="text-3xl font-bold">92%</div>
+                  <div className="text-sm opacity-90">Retention Rate</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur rounded-lg p-4 text-center">
+                  <div className="text-3xl font-bold">700+</div>
+                  <div className="text-sm opacity-90">Interviews</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur rounded-lg p-4 text-center">
+                  <div className="text-3xl font-bold">95%</div>
+                  <div className="text-sm opacity-90">Offer Acceptance</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="bg-white py-16">
+        <div className="max-w-6xl mx-auto px-4">
+          <h3 className="text-3xl font-bold text-slate-800 mb-8 text-center">About Me</h3>
+          <div className="max-w-4xl mx-auto">
+            <p className="text-lg text-slate-600 mb-6">
+              I'm a Technical Recruiter with a unique advantage: 9 years of hands-on software development experience. This technical background allows me to truly understand the roles I'm recruiting for, speak the language of engineers, and assess candidates with precision.
+            </p>
+            <p className="text-lg text-slate-600 mb-6">
+              Over the past year as an independent recruiter, I've successfully placed 47+ mid to senior-level software engineers across fintech and healthtech startups, maintaining an impressive 92% 6-month retention rate. My technical expertise spans Full Stack Development, Cloud Architecture, DevOps, and Microservices.
+            </p>
+            <p className="text-lg text-slate-600 mb-8">
+              Previously, I spent 5 years working as a freelance developer with major clients including Apple, Honda, and American Express, and held senior engineering roles at Oracle and ADECCO. This diverse experience gives me unique insights into what both companies and candidates are looking for.
+            </p>
+            <div className="grid md:grid-cols-3 gap-6 mt-8">
+              <div className="bg-slate-50 p-6 rounded-lg">
+                <Users className="w-8 h-8 text-blue-600 mb-3" />
+                <h4 className="font-semibold text-slate-800 mb-2">Technical Expertise</h4>
+                <p className="text-slate-600 text-sm">Deep understanding of tech stacks, architectures, and engineering challenges from 9 years in software development</p>
+              </div>
+              <div className="bg-slate-50 p-6 rounded-lg">
+                <Target className="w-8 h-8 text-blue-600 mb-3" />
+                <h4 className="font-semibold text-slate-800 mb-2">Quality Focus</h4>
+                <p className="text-slate-600 text-sm">Structured technical assessments that improved candidate quality metrics by 28%</p>
+              </div>
+              <div className="bg-slate-50 p-6 rounded-lg">
+                <TrendingUp className="w-8 h-8 text-blue-600 mb-3" />
+                <h4 className="font-semibold text-slate-800 mb-2">Fast Results</h4>
+                <p className="text-slate-600 text-sm">Reduced average time-to-hire by 32% through streamlined processes and efficient screening</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="py-16">
+        <div className="max-w-6xl mx-auto px-4">
+          <h3 className="text-3xl font-bold text-slate-800 mb-12 text-center">Services</h3>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition">
+              <h4 className="text-2xl font-bold text-slate-800 mb-4">Technical Recruitment</h4>
+              <p className="text-slate-600 mb-6">End-to-end recruitment services for tech roles across all levels, from junior developers to senior architects and engineering leaders.</p>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                  <span className="text-slate-600">Full-cycle recruitment management</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                  <span className="text-slate-600">Technical screening and assessments</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                  <span className="text-slate-600">Interview coordination and scheduling</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                  <span className="text-slate-600">Offer negotiation support</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition">
+              <h4 className="text-2xl font-bold text-slate-800 mb-4">Technical Interviewing</h4>
+              <p className="text-slate-600 mb-6">Leverage my experience conducting 700+ technical interviews to evaluate your candidates with precision and depth.</p>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                  <span className="text-slate-600">Comprehensive technical assessments</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                  <span className="text-slate-600">Detailed evaluation reports</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                  <span className="text-slate-600">Custom interview frameworks</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                  <span className="text-slate-600">Coding and system design evaluations</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition">
+              <h4 className="text-2xl font-bold text-slate-800 mb-4">Hiring Strategy Consulting</h4>
+              <p className="text-slate-600 mb-6">Partner with early-stage startups and growing companies to build effective hiring strategies and engineering teams.</p>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                  <span className="text-slate-600">Talent pipeline development (300+ pre-vetted candidates)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                  <span className="text-slate-600">Compensation benchmarking</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                  <span className="text-slate-600">Hiring process optimization</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                  <span className="text-slate-600">Team building roadmaps</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition">
+              <h4 className="text-2xl font-bold text-slate-800 mb-4">Specialized Tech Roles</h4>
+              <p className="text-slate-600 mb-6">Expert in filling hard-to-find positions that require deep technical knowledge and specialized skill sets.</p>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                  <span className="text-slate-600">ML Engineers & Data Scientists</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                  <span className="text-slate-600">DevOps & Cloud Architects</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                  <span className="text-slate-600">Cybersecurity Professionals</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                  <span className="text-slate-600">Full Stack & Backend Engineers</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Expertise Section */}
+      <section id="expertise" className="bg-white py-16">
+        <div className="max-w-6xl mx-auto px-4">
+          <h3 className="text-3xl font-bold text-slate-800 mb-8 text-center">Technical Expertise</h3>
+          <p className="text-center text-slate-600 mb-12 max-w-3xl mx-auto">
+            My 9 years of software development experience enables me to understand complex technical requirements and identify the right talent for your team.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-slate-50 p-6 rounded-lg">
+              <h4 className="font-semibold text-slate-800 mb-3">Languages & Frameworks</h4>
+              <p className="text-sm text-slate-600">Java, JavaScript, TypeScript, Spring Boot, Angular, React, Node.js, Python</p>
+            </div>
+            <div className="bg-slate-50 p-6 rounded-lg">
+              <h4 className="font-semibold text-slate-800 mb-3">Backend & Cloud</h4>
+              <p className="text-sm text-slate-600">Microservices, Spring Cloud, Apache Kafka, REST APIs, AWS, Azure, Oracle Cloud</p>
+            </div>
+            <div className="bg-slate-50 p-6 rounded-lg">
+              <h4 className="font-semibold text-slate-800 mb-3">DevOps & Tools</h4>
+              <p className="text-sm text-slate-600">Docker, Jenkins, GitLab CI/CD, Terraform, Kubernetes, Git, Maven, Gradle</p>
+            </div>
+            <div className="bg-slate-50 p-6 rounded-lg">
+              <h4 className="font-semibold text-slate-800 mb-3">Databases</h4>
+              <p className="text-sm text-slate-600">MySQL, Oracle, PostgreSQL, MongoDB, Redis, Snowflake, Db2, Sybase</p>
+            </div>
+            <div className="bg-slate-50 p-6 rounded-lg">
+              <h4 className="font-semibold text-slate-800 mb-3">Security & Testing</h4>
+              <p className="text-sm text-slate-600">Spring Security, JWT, JUnit, Test Automation, Security Best Practices</p>
+            </div>
+            <div className="bg-slate-50 p-6 rounded-lg">
+              <h4 className="font-semibold text-slate-800 mb-3">Monitoring & Analytics</h4>
+              <p className="text-sm text-slate-600">Prometheus, Grafana, Splunk, Log4j, Performance Monitoring</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section id="contact" className="py-16">
+        <div className="max-w-4xl mx-auto px-4">
+          <h3 className="text-3xl font-bold text-slate-800 mb-4 text-center">Let's Connect</h3>
+          <p className="text-center text-slate-600 mb-12">
+            Looking to hire top tech talent or need recruitment expertise? Fill out the form below and I'll get back to you within 24 hours.
+          </p>
+          
+          {submitted && (
+            <div className="bg-green-50 border border-green-200 text-green-800 px-6 py-4 rounded-lg mb-6 flex items-center gap-3">
+              <CheckCircle className="w-5 h-5" />
+              <span>Thank you for reaching out! I'll contact you soon.</span>
+            </div>
+          )}
+
+          <div className="bg-white p-8 rounded-xl shadow-lg">
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <label className="block text-slate-700 font-semibold mb-2">Your Name *</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  placeholder="John Doe"
+                />
+              </div>
+              <div>
+                <label className="block text-slate-700 font-semibold mb-2">Email Address *</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  placeholder="john@company.com"
+                />
+              </div>
+            </div>
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <label className="block text-slate-700 font-semibold mb-2">Company</label>
+                <input
+                  type="text"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  placeholder="Your Company Name"
+                />
+              </div>
+              <div>
+                <label className="block text-slate-700 font-semibold mb-2">Role to Fill</label>
+                <input
+                  type="text"
+                  name="role"
+                  value={formData.role}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  placeholder="e.g., Senior Backend Engineer"
+                />
+              </div>
+            </div>
+            <div className="mb-6">
+              <label className="block text-slate-700 font-semibold mb-2">Message *</label>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                rows="5"
+                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                placeholder="Tell me about your hiring needs..."
+              />
+            </div>
+            <button
+              onClick={handleSubmit}
+              className="w-full bg-blue-600 text-white py-4 rounded-lg font-semibold hover:bg-blue-700 transition flex items-center justify-center gap-2"
+            >
+              <Send className="w-5 h-5" />
+              Send Message
+            </button>
+          </div>
+
+          <div className="mt-12 text-center">
+            <h4 className="text-xl font-bold text-slate-800 mb-4">Or reach me directly</h4>
+            <div className="flex flex-col items-center gap-3">
+              <a href="mailto:contact.SoftwareDeveloper7@gmail.com" className="flex items-center gap-2 text-blue-600 hover:text-blue-700 text-lg">
+                <Mail className="w-6 h-6" />
+                contact.SoftwareDeveloper7@gmail.com
+              </a>
+              <a href="tel:+916354825917" className="flex items-center gap-2 text-blue-600 hover:text-blue-700 text-lg">
+                <Phone className="w-6 h-6" />
+                +91 6354-825917
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-slate-800 text-white py-8">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <p className="mb-2">© 2024 Harshal Orawala - Technical Recruitment Specialist</p>
+          <p className="text-slate-400 text-sm">Building exceptional tech teams, one hire at a time.</p>
+          <p className="text-slate-400 text-xs mt-4">Gujarat, India</p>
+        </div>
+      </footer>
+    </div>
+  );
+}
