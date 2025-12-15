@@ -1,0 +1,1664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelance Technical Recruiter Roadmap 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A0E27;
+            --secondary: #1A1F3A;
+            --accent: #00FFA3;
+            --accent-blue: #00D4FF;
+            --accent-purple: #B967FF;
+            --text-primary: #FFFFFF;
+            --text-secondary: #A0AEC0;
+            --gradient-1: linear-gradient(135deg, #00FFA3 0%, #00D4FF 100%);
+            --gradient-2: linear-gradient(135deg, #B967FF 0%, #00D4FF 100%);
+            --gradient-3: linear-gradient(135deg, #FF6B9D 0%, #FFA500 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-animation::before,
+        .bg-animation::after {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.2;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .bg-animation::before {
+            background: var(--accent);
+            top: -200px;
+            right: -200px;
+            animation-delay: 0s;
+        }
+
+        .bg-animation::after {
+            background: var(--accent-purple);
+            bottom: -200px;
+            left: -200px;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(100px, -100px) scale(1.1); }
+            66% { transform: translate(-100px, 100px) scale(0.9); }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .hero-title {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-weight: 800;
+            line-height: 1.1;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            width: 100%;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+        }
+
+        .stat-card {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid rgba(0, 255, 163, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-1);
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: -1;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 60px rgba(0, 255, 163, 0.3);
+        }
+
+        .stat-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .stat-number {
+            font-family: 'Space Mono', monospace;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Section Headers */
+        .section {
+            margin: 8rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .section-header {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-1);
+            animation: slideIn 1s ease-out;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 4rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-1);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            padding-left: 2rem;
+            animation: fadeInRight 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+        .timeline-item:nth-child(6) { animation-delay: 0.6s; }
+
+        .timeline-marker {
+            position: absolute;
+            left: -4.5rem;
+            top: 0;
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            border: 4px solid var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--accent);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 163, 0.7); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(0, 255, 163, 0); }
+        }
+
+        .timeline-content {
+            background: var(--secondary);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid rgba(0, 255, 163, 0.1);
+            transition: all 0.3s;
+        }
+
+        .timeline-content:hover {
+            border-color: var(--accent);
+            transform: translateX(10px);
+            box-shadow: 0 10px 40px rgba(0, 255, 163, 0.2);
+        }
+
+        .timeline-month {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .timeline-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* Week Cards */
+        .weeks {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .week-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--accent-blue);
+            transition: all 0.3s;
+        }
+
+        .week-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(5px);
+        }
+
+        .week-title {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .week-goal {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .checklist li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-secondary);
+            transition: color 0.3s;
+        }
+
+        .checklist li:hover {
+            color: var(--text-primary);
+        }
+
+        .checklist li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* Revenue Badge */
+        .revenue-badge {
+            display: inline-block;
+            background: var(--gradient-3);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            animation: shimmer 2s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Cost Badge */
+        .cost-badge {
+            display: inline-block;
+            background: rgba(255, 107, 157, 0.2);
+            color: #FF6B9D;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        /* Earnings Section */
+        .earnings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .earnings-card {
+            background: var(--secondary);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid rgba(185, 103, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s;
+        }
+
+        .earnings-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-2);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .earnings-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-purple);
+            box-shadow: 0 20px 60px rgba(185, 103, 255, 0.3);
+        }
+
+        .earnings-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .earnings-title {
+            font-family: 'Fraunces', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--accent-purple);
+        }
+
+        .earnings-amount {
+            font-family: 'Space Mono', monospace;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 1.5rem 0;
+        }
+
+        /* Pricing Table */
+        .pricing-table {
+            background: var(--secondary);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 2rem;
+            border: 2px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .pricing-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .pricing-row:hover {
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        .pricing-row.header {
+            background: rgba(0, 212, 255, 0.2);
+            font-weight: 700;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .pricing-role {
+            font-weight: 600;
+        }
+
+        .pricing-salary {
+            color: var(--text-secondary);
+            font-family: 'Space Mono', monospace;
+        }
+
+        .pricing-fee {
+            color: var(--accent);
+            font-weight: 700;
+            font-family: 'Space Mono', monospace;
+            font-size: 1.1rem;
+        }
+
+        /* Daily Routine Section */
+        .routine-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .routine-card {
+            background: linear-gradient(135deg, rgba(0, 255, 163, 0.1) 0%, rgba(0, 212, 255, 0.1) 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid transparent;
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .routine-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            padding: 2px;
+            background: var(--gradient-1);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .routine-card:hover::before {
+            opacity: 1;
+        }
+
+        .routine-card:hover {
+            transform: scale(1.05);
+        }
+
+        .routine-time {
+            font-family: 'Space Mono', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .routine-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .routine-tasks {
+            list-style: none;
+        }
+
+        .routine-tasks li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .routine-tasks li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+
+        /* Key Metrics */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--accent-purple);
+            transition: all 0.3s;
+        }
+
+        .metric-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(5px);
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .metric-value {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-purple);
+        }
+
+        /* Success Factors */
+        .factors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .factor-section {
+            background: var(--secondary);
+            padding: 2.5rem;
+            border-radius: 20px;
+        }
+
+        .factor-section.do {
+            border: 2px solid var(--accent);
+        }
+
+        .factor-section.avoid {
+            border: 2px solid #FF6B9D;
+        }
+
+        .factor-header {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .factor-icon {
+            font-size: 2.5rem;
+        }
+
+        .factor-list {
+            list-style: none;
+        }
+
+        .factor-list li {
+            padding: 1rem 0;
+            padding-left: 2.5rem;
+            position: relative;
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .factor-list li:last-child {
+            border-bottom: none;
+        }
+
+        .factor-list.do li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .factor-list.avoid li::before {
+            content: '✕';
+            position: absolute;
+            left: 0;
+            color: #FF6B9D;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        /* Investment Section */
+        .investment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .investment-card {
+            background: linear-gradient(135deg, rgba(255, 107, 157, 0.1) 0%, rgba(255, 165, 0, 0.1) 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 107, 157, 0.3);
+        }
+
+        .investment-title {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #FFA500;
+        }
+
+        .investment-items {
+            list-style: none;
+        }
+
+        .investment-items li {
+            padding: 0.75rem 0;
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .investment-amount {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            color: #FFA500;
+        }
+
+        .investment-total {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #FFA500;
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Space Mono', monospace;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .investment-total .amount {
+            color: #FFA500;
+        }
+
+        /* Action Items */
+        .action-cta {
+            background: var(--gradient-1);
+            padding: 4rem;
+            border-radius: 30px;
+            text-align: center;
+            margin: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-cta::before {
+            content: '';
+            position: absolute;
+            inset: -50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .action-cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .action-title {
+            font-family: 'Fraunces', serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .action-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .action-step {
+            background: rgba(10, 14, 39, 0.9);
+            padding: 2rem;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .action-step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .action-step-number {
+            font-family: 'Space Mono', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .action-step-text {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+        }
+
+        /* Resources */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .resource-card {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid rgba(0, 212, 255, 0.2);
+            transition: all 0.3s;
+        }
+
+        .resource-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-5px);
+        }
+
+        .resource-title {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--accent-blue);
+        }
+
+        .resource-list {
+            list-style: none;
+        }
+
+        .resource-list li {
+            padding: 0.75rem 0;
+            color: var(--text-secondary);
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .resource-list li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--secondary);
+            margin-top: 8rem;
+        }
+
+        .footer-message {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .timeline {
+                padding-left: 2rem;
+            }
+
+            .timeline-marker {
+                left: -2.5rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .factors-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .action-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+        }
+
+        /* Scroll Animation */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="hero-title">Your 6-Month Roadmap to<br/>$150K-250K as a<br/>Freelance Tech Recruiter</h1>
+        <p class="hero-subtitle">From zero to profitable in 180 days. A step-by-step blueprint for launching your freelance technical recruiting business in 2026.</p>
+        
+        <div class="hero-stats">
+            <div class="stat-card">
+                <div class="stat-number">15-25%</div>
+                <div class="stat-label">Commission Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4-6</div>
+                <div class="stat-label">Placements for $100K</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$22K-50K</div>
+                <div class="stat-label">Per Placement</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">180</div>
+                <div class="stat-label">Days to Launch</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Timeline Section -->
+        <section class="section scroll-reveal">
+            <h2 class="section-header">The Complete Timeline</h2>
+            
+            <div class="timeline">
+                <!-- Month 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">M1</div>
+                    <div class="timeline-content">
+                        <div class="timeline-month">Month 1</div>
+                        <div class="timeline-title">Foundation & Setup</div>
+                        <div class="timeline-description">
+                            Establish your legal entity, choose your technical niche, and prepare for launch. This is your investment phase.
+                        </div>
+                        
+                        <div class="weeks">
+                            <div class="week-card">
+                                <div class="week-title">Week 1-2: Legal & Financial Setup</div>
+                                <div class="week-goal"><strong>Goal:</strong> Get legally operational</div>
+                                <ul class="checklist">
+                                    <li>Register business (sole proprietor or LLC)</li>
+                                    <li>Get EIN from IRS (if US-based)</li>
+                                    <li>Open business bank account</li>
+                                    <li>Set up accounting software (Xero or QuickBooks)</li>
+                                    <li>Create invoice templates</li>
+                                    <li>Draft basic service agreements/contracts</li>
+                                    <li>Research tax obligations for self-employment</li>
+                                </ul>
+                                <div class="cost-badge">Cost: $100-500</div>
+                            </div>
+                            
+                            <div class="week-card">
+                                <div class="week-title">Week 3-4: Choose Your Technical Niche</div>
+                                <div class="week-goal"><strong>Goal:</strong> Become a specialist, not a generalist</div>
+                                <ul class="checklist">
+                                    <li>AI/Machine Learning Engineers</li>
+                                    <li>Cloud/DevOps Engineers (AWS, Azure, GCP)</li>
+                                    <li>Cybersecurity Specialists</li>
+                                    <li>Blockchain/Web3 Developers</li>
+                                    <li>Mobile Engineers (iOS/Android)</li>
+                                    <li>Data Engineers/Scientists</li>
+                                    <li>Frontend/Backend Engineers</li>
+                                </ul>
+                                <ul class="checklist" style="margin-top: 1rem;">
+                                    <li>Research salary ranges in your niche</li>
+                                    <li>Identify 20-30 target companies</li>
+                                    <li>Study job descriptions to understand requirements</li>
+                                    <li>Join 5-10 relevant tech communities</li>
+                                    <li>Follow key influencers in your niche</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="revenue-badge">💰 Revenue Target: $0 (Investment Phase)</div>
+                    </div>
+                </div>
+
+                <!-- Month 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">M2</div>
+                    <div class="timeline-content">
+                        <div class="timeline-month">Month 2</div>
+                        <div class="timeline-title">Tech Stack & Online Presence</div>
+                        <div class="timeline-description">
+                            Build your recruiting infrastructure and establish your professional digital presence.
+                        </div>
+                        
+                        <div class="weeks">
+                            <div class="week-card">
+                                <div class="week-title">Week 1-2: Essential Tools Setup</div>
+                                <div class="week-goal"><strong>Goal:</strong> Build your recruiting infrastructure</div>
+                                <ul class="checklist">
+                                    <li>Choose and set up ATS (Bullhorn, Teamtailor, or Lever)</li>
+                                    <li>Choose and set up CRM (JobAdder, Recruiterflow, Recruit CRM)</li>
+                                    <li>Sign up for Juicebox AI (or similar AI sourcing tool)</li>
+                                    <li>Set up email automation tool (Lemlist, Instantly, Mailshake)</li>
+                                    <li>Create calendar booking system (Calendly)</li>
+                                </ul>
+                                <div class="cost-badge">Monthly Cost: $200-400</div>
+                            </div>
+                            
+                            <div class="week-card">
+                                <div class="week-title">Week 3-4: Build Your Digital Presence</div>
+                                <div class="week-goal"><strong>Goal:</strong> Look professional and credible</div>
+                                <ul class="checklist">
+                                    <li>Create professional website (WordPress/Squarespace)</li>
+                                    <li>Add Services, About, Contact pages</li>
+                                    <li>Include Privacy policy and Terms of service</li>
+                                    <li>Optimize LinkedIn profile as specialist</li>
+                                    <li>Professional headshot and banner design</li>
+                                    <li>Write compelling About section</li>
+                                    <li>Create content calendar for LinkedIn posts</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="revenue-badge">💰 Revenue Target: $0 (Still Investing)</div>
+                    </div>
+                </div>
+
+                <!-- Month 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">M3</div>
+                    <div class="timeline-content">
+                        <div class="timeline-month">Month 3</div>
+                        <div class="timeline-title">Network Building & First Outreach</div>
+                        <div class="timeline-description">
+                            Build your candidate pipeline and start engaging with potential clients.
+                        </div>
+                        
+                        <div class="weeks">
+                            <div class="week-card">
+                                <div class="week-title">Week 1-2: Build Your Candidate Pipeline</div>
+                                <div class="week-goal"><strong>Goal:</strong> Have 100+ qualified candidates in database</div>
+                                <ul class="checklist">
+                                    <li>Use Juicebox AI to source 100+ profiles in your niche</li>
+                                    <li>Connect with 100 candidates on LinkedIn (20/day limit)</li>
+                                    <li>Send personalized messages to 50 candidates</li>
+                                    <li>Start building relationships (no hard sells yet)</li>
+                                    <li>Create a candidate nurture sequence</li>
+                                    <li>Join tech job boards and communities</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="week-card">
+                                <div class="week-title">Week 3-4: Client Prospecting Begins</div>
+                                <div class="week-goal"><strong>Goal:</strong> Identify and engage 50 potential clients</div>
+                                <ul class="checklist">
+                                    <li>Connect with 20 hiring managers/CTOs/VPs daily</li>
+                                    <li>Like and comment on 15 posts daily</li>
+                                    <li>Post content 3x per week on LinkedIn</li>
+                                    <li>Send 10 personalized cold emails daily</li>
+                                    <li>Follow up with previous connections</li>
+                                    <li>Target startups (Series A-C) and mid-size companies</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="revenue-badge">💰 Revenue Target: $0-2,000 (First Small Project)</div>
+                    </div>
+                </div>
+
+                <!-- Month 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">M4</div>
+                    <div class="timeline-content">
+                        <div class="timeline-month">Month 4</div>
+                        <div class="timeline-title">First Placements & Client Acquisition</div>
+                        <div class="timeline-description">
+                            Close your first clients, execute searches, and make your first placements.
+                        </div>
+                        
+                        <div class="weeks">
+                            <div class="week-card">
+                                <div class="week-title">Week 1-2: Close Your First 1-3 Clients</div>
+                                <div class="week-goal"><strong>Goal:</strong> Sign first contracts</div>
+                                <p style="margin: 1rem 0; color: var(--text-secondary);">
+                                    <strong>Pricing Strategy:</strong>
+                                </p>
+                                <ul class="checklist">
+                                    <li>Contingency: 15-20% of first-year salary</li>
+                                    <li>Retained: $3,000-5,000 upfront + 10-15% on placement</li>
+                                    <li>Hourly: $60-100/hour for smaller projects</li>
+                                    <li>Project-based: $2,000-5,000 per hire</li>
+                                </ul>
+                                <ul class="checklist" style="margin-top: 1rem;">
+                                    <li>Send proposals to warm leads</li>
+                                    <li>Conduct 10+ discovery calls</li>
+                                    <li>Present 3-5 shortlisted candidates per role</li>
+                                    <li>Get signed contracts with payment terms</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="week-card">
+                                <div class="week-title">Week 3-4: Execute First Searches</div>
+                                <div class="week-goal"><strong>Goal:</strong> Deliver value and get testimonials</div>
+                                <ul class="checklist">
+                                    <li>Deep dive into client requirements</li>
+                                    <li>Source 20-30 candidates per role using AI tools</li>
+                                    <li>Screen and interview top 10 candidates</li>
+                                    <li>Present 3-5 qualified candidates to client</li>
+                                    <li>Coordinate interviews</li>
+                                    <li>Negotiate offers</li>
+                                    <li>Support onboarding process</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="revenue-badge">💰 Revenue Target: $3,000-8,000 (First Placement Fee)</div>
+                    </div>
+                </div>
+
+                <!-- Month 5 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">M5</div>
+                    <div class="timeline-content">
+                        <div class="timeline-month">Month 5</div>
+                        <div class="timeline-title">Scale & Systematize</div>
+                        <div class="timeline-description">
+                            Create repeatable systems and expand your client base.
+                        </div>
+                        
+                        <div class="weeks">
+                            <div class="week-card">
+                                <div class="week-title">Week 1-2: Refine Your Process</div>
+                                <div class="week-goal"><strong>Goal:</strong> Create repeatable systems</div>
+                                <ul class="checklist">
+                                    <li>Document your recruitment workflow</li>
+                                    <li>Create email templates library (50+ templates)</li>
+                                    <li>Build automated follow-up sequences</li>
+                                    <li>Set up weekly reporting for clients</li>
+                                    <li>Create candidate interview scorecards</li>
+                                    <li>Optimize LinkedIn posting schedule</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="week-card">
+                                <div class="week-title">Week 3-4: Expand Client Base</div>
+                                <div class="week-goal"><strong>Goal:</strong> Have 3-5 active clients</div>
+                                <ul class="checklist">
+                                    <li>Ask for referrals from happy clients</li>
+                                    <li>Post success stories on LinkedIn</li>
+                                    <li>Attend 2-3 virtual networking events</li>
+                                    <li>Join recruiter communities</li>
+                                    <li>Consider Upwork/Fiverr for additional leads</li>
+                                    <li>Double down on cold outreach with proof</li>
+                                </ul>
+                                <p style="margin-top: 1rem; color: var(--accent-blue); font-weight: 600;">
+                                    AI Automation: Automated sourcing, personalized outreach, interview scheduling, candidate screening
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="revenue-badge">💰 Revenue Target: $8,000-15,000 (2-3 Placements)</div>
+                    </div>
+                </div>
+
+                <!-- Month 6 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">M6</div>
+                    <div class="timeline-content">
+                        <div class="timeline-month">Month 6</div>
+                        <div class="timeline-title">Optimization & Growth</div>
+                        <div class="timeline-description">
+                            Position yourself as a premium specialist and build long-term sustainability.
+                        </div>
+                        
+                        <div class="weeks">
+                            <div class="week-card">
+                                <div class="week-title">Week 1-2: Increase Prices & Specialize Further</div>
+                                <div class="week-goal"><strong>Goal:</strong> Position as premium specialist</div>
+                                <ul class="checklist">
+                                    <li>Raise rates to 20-25% for new clients</li>
+                                    <li>Create case studies from successful placements</li>
+                                    <li>Develop specialized assessment processes</li>
+                                    <li>Build relationships with passive candidates</li>
+                                    <li>Create a referral program for candidates</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="week-card">
+                                <div class="week-title">Week 3-4: Think Long-term</div>
+                                <div class="week-goal"><strong>Goal:</strong> Build sustainable business model</div>
+                                <ul class="checklist">
+                                    <li>Set up retainer agreements with top clients</li>
+                                    <li>Create content that positions you as expert</li>
+                                    <li>Start building an email newsletter</li>
+                                    <li>Consider niche job board or community</li>
+                                    <li>Plan to hire VA or junior recruiter support</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="revenue-badge">💰 Revenue Target: $15,000-25,000 (3-4 Placements)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Earnings Projection -->
+        <section class="section scroll-reveal">
+            <h2 class="section-header">Realistic Earnings Timeline</h2>
+            
+            <div class="earnings-grid">
+                <div class="earnings-card">
+                    <div class="earnings-title">Months 1-2</div>
+                    <div class="earnings-amount">-$1,000</div>
+                    <p style="color: var(--text-secondary);">Investment in tools and setup. This is your foundation phase where you're building infrastructure.</p>
+                </div>
+                
+                <div class="earnings-card">
+                    <div class="earnings-title">Month 3</div>
+                    <div class="earnings-amount">$0-2,000</div>
+                    <p style="color: var(--text-secondary);">First small win possible. You're building momentum and proving your value.</p>
+                </div>
+                
+                <div class="earnings-card">
+                    <div class="earnings-title">Month 4</div>
+                    <div class="earnings-amount">$3K-8K</div>
+                    <p style="color: var(--text-secondary);">First placement! This validates your business model and builds confidence.</p>
+                </div>
+                
+                <div class="earnings-card">
+                    <div class="earnings-title">Month 5</div>
+                    <div class="earnings-amount">$8K-15K</div>
+                    <p style="color: var(--text-secondary);">2-3 placements. You're gaining traction and refining your systems.</p>
+                </div>
+                
+                <div class="earnings-card">
+                    <div class="earnings-title">Month 6</div>
+                    <div class="earnings-amount">$15K-25K</div>
+                    <p style="color: var(--text-secondary);">3-4 placements. You're now operating at scale with proven processes.</p>
+                </div>
+                
+                <div class="earnings-card">
+                    <div class="earnings-title">Months 7-12</div>
+                    <div class="earnings-amount">$20K-40K/mo</div>
+                    <p style="color: var(--text-secondary);">4-6 placements per month. You've built a sustainable, profitable business.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 4rem; text-align: center; padding: 3rem; background: rgba(0, 255, 163, 0.1); border-radius: 20px; border: 2px solid var(--accent);">
+                <div style="font-family: 'Fraunces', serif; font-size: 2.5rem; font-weight: 800; color: var(--accent); margin-bottom: 1rem;">
+                    Year 1 Total: $150K-250K
+                </div>
+                <p style="color: var(--text-secondary); font-size: 1.2rem;">
+                    Realistic with focused execution. You only need 4-6 placements annually to hit $100K+
+                </p>
+            </div>
+        </section>
+
+        <!-- Pricing Examples -->
+        <section class="section scroll-reveal">
+            <h2 class="section-header">Pricing Examples (Tech Roles)</h2>
+            
+            <div class="pricing-table">
+                <div class="pricing-row header">
+                    <div>Role</div>
+                    <div>Annual Salary</div>
+                    <div>Your Fee (15-25%)</div>
+                </div>
+                <div class="pricing-row">
+                    <div class="pricing-role">Senior Software Engineer</div>
+                    <div class="pricing-salary">$150,000</div>
+                    <div class="pricing-fee">$22,500 - $37,500</div>
+                </div>
+                <div class="pricing-row">
+                    <div class="pricing-role">ML Engineer</div>
+                    <div class="pricing-salary">$180,000</div>
+                    <div class="pricing-fee">$27,000 - $45,000</div>
+                </div>
+                <div class="pricing-row">
+                    <div class="pricing-role">Engineering Manager</div>
+                    <div class="pricing-salary">$200,000</div>
+                    <div class="pricing-fee">$30,000 - $50,000</div>
+                </div>
+                <div class="pricing-row">
+                    <div class="pricing-role">Principal Engineer</div>
+                    <div class="pricing-salary">$250,000</div>
+                    <div class="pricing-fee">$37,500 - $62,500</div>
+                </div>
+                <div class="pricing-row">
+                    <div class="pricing-role">VP of Engineering</div>
+                    <div class="pricing-salary">$300,000</div>
+                    <div class="pricing-fee">$45,000 - $75,000</div>
+                </div>
+            </div>
+
+            <p style="margin-top: 2rem; text-align: center; color: var(--accent); font-size: 1.3rem; font-weight: 700;">
+                Just 4-6 placements = $100K+ annually
+            </p>
+        </section>
+
+        <!-- Daily Routine -->
+        <section class="section scroll-reveal">
+            <h2 class="section-header">Your Daily Routine (Once Established)</h2>
+            
+            <div class="routine-grid">
+                <div class="routine-card">
+                    <div class="routine-time">Morning</div>
+                    <div class="routine-title">3 Hours</div>
+                    <ul class="routine-tasks">
+                        <li>Review active searches and candidate pipeline</li>
+                        <li>Source 10-20 new candidates using AI tools</li>
+                        <li>Send 20 personalized candidate outreach messages</li>
+                        <li>Screen 2-3 candidates via phone</li>
+                    </ul>
+                </div>
+
+                <div class="routine-card">
+                    <div class="routine-time">Midday</div>
+                    <div class="routine-title">2 Hours</div>
+                    <ul class="routine-tasks">
+                        <li>Client calls and status updates</li>
+                        <li>Coordinate interviews</li>
+                        <li>Handle negotiations and offers</li>
+                        <li>Pipeline management</li>
+                    </ul>
+                </div>
+
+                <div class="routine-card">
+                    <div class="routine-time">Afternoon</div>
+                    <div class="routine-title">2 Hours</div>
+                    <ul class="routine-tasks">
+                        <li>LinkedIn engagement (like, comment, post)</li>
+                        <li>Connect with 20 new people</li>
+                        <li>Send 10 cold emails to prospects</li>
+                        <li>Follow up with warm leads</li>
+                    </ul>
+                </div>
+
+                <div class="routine-card">
+                    <div class="routine-time">Weekly</div>
+                    <div class="routine-title">Tasks</div>
+                    <ul class="routine-tasks">
+                        <li>Post 3x on LinkedIn</li>
+                        <li>Attend 1-2 networking events</li>
+                        <li>Review financials and pipeline</li>
+                        <li>Plan next week's activities</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Metrics -->
+        <section class="section scroll-reveal">
+            <h2 class="section-header">Key Metrics to Track</h2>
+            
+            <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem; color: var(--accent-blue);">Pipeline Metrics</h3>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Candidates Sourced</div>
+                    <div class="metric-value">50-100/week</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Active Client Searches</div>
+                    <div class="metric-value">3-5</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Candidates Submitted</div>
+                    <div class="metric-value">5-10/week</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Interviews Arranged</div>
+                    <div class="metric-value">3-5/week</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Offers Extended</div>
+                    <div class="metric-value">1-2/week</div>
+                </div>
+            </div>
+
+            <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem; color: var(--accent);">Marketing Metrics</h3>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-label">LinkedIn Connections</div>
+                    <div class="metric-value">100/week</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Email Open Rate</div>
+                    <div class="metric-value">30-40%</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Email Response Rate</div>
+                    <div class="metric-value">5-10%</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Discovery Calls Booked</div>
+                    <div class="metric-value">2-5/week</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Critical Success Factors -->
+        <section class="section scroll-reveal">
+            <h2 class="section-header">Critical Success Factors</h2>
+            
+            <div class="factors-grid">
+                <div class="factor-section do">
+                    <div class="factor-header">
+                        <span class="factor-icon">✓</span>
+                        <span>Do This</span>
+                    </div>
+                    <ul class="factor-list do">
+                        <li>Specialize deeply (don't be a generalist)</li>
+                        <li>Build relationships before asking for business</li>
+                        <li>Use AI tools to 10x your efficiency</li>
+                        <li>Focus on quality over quantity</li>
+                        <li>Follow up relentlessly (80% of deals need 5+ touchpoints)</li>
+                        <li>Deliver exceptional candidate experience</li>
+                        <li>Ask for referrals from every happy client</li>
+                    </ul>
+                </div>
+
+                <div class="factor-section avoid">
+                    <div class="factor-header">
+                        <span class="factor-icon">✕</span>
+                        <span>Avoid This</span>
+                    </div>
+                    <ul class="factor-list avoid">
+                        <li>Trying to recruit for every tech role</li>
+                        <li>Competing on price (compete on specialization)</li>
+                        <li>Skipping the relationship-building phase</li>
+                        <li>Not investing in proper tools</li>
+                        <li>Working with clients who don't respect your expertise</li>
+                        <li>Burning out by taking on too many searches</li>
+                        <li>Neglecting your online presence</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Investment Required -->
+        <section class="section scroll-reveal">
+            <h2 class="section-header">Investment Required</h2>
+            
+            <div class="investment-grid">
+                <div class="investment-card">
+                    <div class="investment-title">Startup Costs (Months 1-2)</div>
+                    <ul class="investment-items">
+                        <li>
+                            <span>Business registration</span>
+                            <span class="investment-amount">$100-500</span>
+                        </li>
+                        <li>
+                            <span>Tools/software</span>
+                            <span class="investment-amount">$200-400/mo</span>
+                        </li>
+                        <li>
+                            <span>Website</span>
+                            <span class="investment-amount">$200-500</span>
+                        </li>
+                        <li>
+                            <span>LinkedIn Premium/Recruiter</span>
+                            <span class="investment-amount">$100-150/mo</span>
+                        </li>
+                    </ul>
+                    <div class="investment-total">
+                        <span>Total:</span>
+                        <span class="amount">$1,500-2,500</span>
+                    </div>
+                </div>
+
+                <div class="investment-card">
+                    <div class="investment-title">Monthly Operating Costs</div>
+                    <ul class="investment-items">
+                        <li>
+                            <span>ATS/CRM</span>
+                            <span class="investment-amount">$100-300</span>
+                        </li>
+                        <li>
+                            <span>AI sourcing (Juicebox)</span>
+                            <span class="investment-amount">$100-200</span>
+                        </li>
+                        <li>
+                            <span>Email tools</span>
+                            <span class="investment-amount">$50-100</span>
+                        </li>
+                        <li>
+                            <span>Accounting software</span>
+                            <span class="investment-amount">$15-50</span>
+                        </li>
+                        <li>
+                            <span>LinkedIn</span>
+                            <span class="investment-amount">$100-150</span>
+                        </li>
+                    </ul>
+                    <div class="investment-total">
+                        <span>Total:</span>
+                        <span class="amount">$365-800/mo</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; text-align: center; padding: 2rem; background: rgba(255, 165, 0, 0.1); border-radius: 15px; border: 2px solid #FFA500;">
+                <p style="color: var(--text-secondary); font-size: 1.3rem;">
+                    <strong style="color: #FFA500;">Break-even:</strong> After just 1-2 placements
+                </p>
+            </div>
+        </section>
+
+        <!-- Action Items CTA -->
+        <section class="action-cta">
+            <div class="action-cta-content">
+                <div class="action-title">Start Today: Your First Week</div>
+                <div class="action-steps">
+                    <div class="action-step">
+                        <div class="action-step-number">Week 1</div>
+                        <div class="action-step-text">Choose your technical niche and register your business</div>
+                    </div>
+                    <div class="action-step">
+                        <div class="action-step-number">Week 2</div>
+                        <div class="action-step-text">Set up LinkedIn profile and start daily engagement</div>
+                    </div>
+                    <div class="action-step">
+                        <div class="action-step-number">Week 3</div>
+                        <div class="action-step-text">Sign up for 2-3 essential tools (start with free trials)</div>
+                    </div>
+                    <div class="action-step">
+                        <div class="action-step-number">Week 4</div>
+                        <div class="action-step-text">Source your first 50 candidates and reach out to 20 clients</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources -->
+        <section class="section scroll-reveal">
+            <h2 class="section-header">Resources & Next Steps</h2>
+            
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-title">Communities to Join</div>
+                    <ul class="resource-list">
+                        <li>r/recruiting on Reddit</li>
+                        <li>Recruiter community on Discord</li>
+                        <li>LinkedIn groups for tech recruiters</li>
+                        <li>Tech-specific Slack communities</li>
+                    </ul>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-title">Content to Consume</div>
+                    <ul class="resource-list">
+                        <li>"The Recruiter's Handbook" podcast</li>
+                        <li>"Sourcing Challenge" by Juicebox</li>
+                        <li>Tech recruiting blogs and newsletters</li>
+                        <li>LinkedIn Learning courses</li>
+                    </ul>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-title">Essential Reading</div>
+                    <ul class="resource-list">
+                        <li>SHRM recruiter compensation models</li>
+                        <li>ERE.net for industry insights</li>
+                        <li>Tech salary guides (Hired, Levels.fyi)</li>
+                        <li>IRS small business guidelines</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-message">Ready to Launch Your Freelance Career?</div>
+        <p class="footer-text">
+            With focus, consistency, and the right tools, you can realistically earn $150K-250K in your first year as a freelance technical recruiter. The key is specialization, relationship-building, and leveraging AI to compete with bigger agencies. Remember: most freelance recruiters fail because they give up too early. The first 90 days are the hardest. Stay consistent, track your metrics, and adjust based on what's working.
+        </p>
+        <p style="margin-top: 2rem; color: var(--accent); font-size: 1.3rem; font-weight: 700;">
+            Your First Action: Choose your niche TODAY and begin building your network this week.
+        </p>
+    </footer>
+
+    <script>
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add parallax effect to hero stats
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroStats = document.querySelector('.hero-stats');
+            if (heroStats && scrolled < window.innerHeight) {
+                heroStats.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
